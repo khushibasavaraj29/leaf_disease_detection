@@ -11,7 +11,7 @@ model_path='trained_plant_disease_model.keras'
 
 if not os.path.exists(model_path):
     st.warning("Downloading model from Google Drive...")
-    gdown.download(id=file_id,model_path, quiet=False)
+    gdown.download(id=file_id,model_path quiet=False)
 
 
 model_path = "trained_plant_disease_model.keras"
@@ -55,3 +55,4 @@ elif(app_mode=="DISEASE RECOGNITION"):
         #Reading Labels
         class_name = ['Early_Blight', 'Healthy', 'Late_Blight']
         st.success("Model is Predicting it's a {}".format(class_name[result_index]))
+        output=model_path
