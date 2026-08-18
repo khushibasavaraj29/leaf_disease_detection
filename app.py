@@ -4,15 +4,13 @@ import numpy as np
 import gdown
 import os
 
-
 file_id='1ERI0L80XOFjrcRc3Sqmu1TISjLMgqtPX'
 url='https://drive.google.com/file/d/1ERI0L80XOFjrcRc3Sqmu1TISjLMgqtPX'
 model_path='trained_plant_disease_model.keras'
 
 if not os.path.exists(model_path):
     st.warning("Downloading model from Google Drive...")
-    gdown.download(id=file_id,model_path, quiet=False)
-
+    gdown.download(id=file_id,output=model_path,quiet=False)
 
 model_path = "trained_plant_disease_model.keras"
 def model_prediction(test_image):
@@ -55,4 +53,4 @@ elif(app_mode=="DISEASE RECOGNITION"):
         #Reading Labels
         class_name = ['Early_Blight', 'Healthy', 'Late_Blight']
         st.success("Model is Predicting it's a {}".format(class_name[result_index]))
-        output=model_path
+        
